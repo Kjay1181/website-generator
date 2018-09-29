@@ -1,0 +1,47 @@
+<html>
+  
+  
+  <body>
+    <ol></ol>
+    <select id= "people" ></select>
+  <button onclick="remove()">Remove name</button>
+ 
+  <script>
+    var arr=["yui","kevin","Mr.kam"];
+    var select= document.getElementById('people');
+    
+    function populate(){
+      for (var i=0; i < arr.length; i++){
+       var opt = i + 1 ;// box shows one two three
+     
+       var elem = document.createElement('option');
+        elem.textContent = opt;
+        elem.value= opt; //gives value 123
+        select.appendChild(elem);
+    
+    var li= document.createElement('li');
+    var newText = document.createTextNode(arr[i]);
+    li.appendChild(newText);
+    var ol= document.getElementsByTagName('ol')[0];
+     ol.appendChild(li);
+      }
+    }
+    
+    
+    function remove(){
+      var sel = document.getElementById('people').value; //gets the value of the people select box
+      var li = document.getElementsByTagName('li')[sel-1];//gets all the li and subtracts 1
+      var parent  = li.parentNode;// get the parent of li which is ol
+      parent.removeChild(li);// removes the li value from the parent
+    }
+  </script>
+  <script>
+  populate()
+  
+  
+  </script>
+  </body>
+  
+  
+  
+  </html>
